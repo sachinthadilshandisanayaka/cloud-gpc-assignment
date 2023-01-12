@@ -1,0 +1,5 @@
+grpc:
+  client:
+    student-grpc-service:
+      address: static://localhost:5001
+      negotiationType: plaintext

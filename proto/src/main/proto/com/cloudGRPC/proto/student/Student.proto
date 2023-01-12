@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.cloudGRPCStudent;
+
+message Student {
+  string st_id = 1;
+  string st_name = 2;
+  string st_grade = 3;
+  string st_sj_id = 4;
+}
+
+message Empty {
+}
+
+message StudentWrapper{
+  repeated Student student_list = 1;
+}
+
+message StudentById {
+  string st_id = 1;
+}
+
+service StudentGRPCService {
+  rpc getStudentById(StudentById) returns(Student){};
+  rpc getAllStudent(Empty) returns(StudentWrapper){};
+}
