@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.cloudGRPCTeacher;
+
+message Teacher {
+  string tc_id = 1;
+  string tc_name = 2;
+  string st_gender = 3;
+  string tc_sj_id = 4;
+}
+
+message Empty {
+}
+
+message TeacherWrapper{
+  repeated Teacher teacher_list = 1;
+}
+
+message TeacherById {
+  string tc_id = 1;
+}
+
+service TeacherGRPCService {
+  rpc getTeacherById(TeacherById) returns(Teacher){};
+  rpc getAllTeacher(Empty) returns(TeacherWrapper){};
+}

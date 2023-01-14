@@ -3,3 +3,6 @@ grpc:
     student-grpc-service:
       address: static://localhost:5001
       negotiationType: plaintext
+    teacher-grpc-service:
+      address: static://localhost:5002
+      negotiationType: plaintext
