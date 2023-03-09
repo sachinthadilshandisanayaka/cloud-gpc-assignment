@@ -20,7 +20,6 @@ public class StudentGRPCService {
 
     public List<StudentDTO> getAllStudent() throws Exception {
         List<StudentDTO> studentDTOList = new ArrayList<>();
-        StudentDTO studentDTO = new StudentDTO();
         Empty emptyRequest = Empty.newBuilder().build();
 
         StudentWrapper studentRequest = studentGRPCServiceBlockingStub
@@ -29,6 +28,7 @@ public class StudentGRPCService {
                 .getAllStudent(emptyRequest);
         try {
             for (Student student : studentRequest.getStudentListList()) {
+                StudentDTO studentDTO = new StudentDTO();
                 mapGrpcObjectToDTO(student, studentDTO);
                 studentDTOList.add(studentDTO);
             }

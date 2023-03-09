@@ -13,8 +13,8 @@ public class StudentServiceImpl implements StudentServiceGateway {
 
     @Override
     public List<StudentDTO> getAllStudent() {
-        StudentDTO student = new StudentDTO();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
+            StudentDTO student = new StudentDTO();
             student.setId(String.valueOf(i));
             student.setName("Name" + i);
             student.setGrade("Age" + i);

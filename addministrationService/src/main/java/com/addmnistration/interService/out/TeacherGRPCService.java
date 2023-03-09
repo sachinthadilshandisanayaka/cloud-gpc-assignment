@@ -21,7 +21,6 @@ public class TeacherGRPCService {
 
     public List<TeacherDTO> getAllStudent() throws Exception {
         List<TeacherDTO> teacherDTOList = new ArrayList<>();
-        TeacherDTO teacherDTO = new TeacherDTO();
         Empty emptyRequest = Empty.newBuilder().build();
 
         TeacherWrapper teacherRequest = teacherGRPCServiceBlockingStub
@@ -30,6 +29,7 @@ public class TeacherGRPCService {
                 .getAllTeacher(emptyRequest);
         try {
             for (Teacher teacher : teacherRequest.getTeacherListList()) {
+                TeacherDTO teacherDTO = new TeacherDTO();
                 mapGrpcObjectToDTO(teacher, teacherDTO);
                 teacherDTOList.add(teacherDTO);
             }
